@@ -16,9 +16,9 @@ custom [mailer](https://github.com/mikel/mail) class.
 Put in `config/initializers/jangomail.rb`:
 
      ActionMailer::Base.add_delivery_method :jangomail, Jangomail::Mailer,
-                                              :user_name => 'username',
-                                              :password  => 'password',
-                                              :options   => { :OpenTrack => true }
+                                            :user_name => 'username',
+                                            :password  => 'password',
+                                            :options   => { :OpenTrack => true }
 
 And in your ActionMailer class:
 
