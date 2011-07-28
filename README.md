@@ -12,7 +12,7 @@ custom [mailer](https://github.com/mikel/mail) class.
 - `options`: hash containing additional JangoMail options (e.g. `{ :OpenTrack => true }`)
 - `api_url`: JangoMail API URL
 
-# Rails Examples
+## Rails Examples
 Put in `config/initializers/jangomail.rb`:
 
      ActionMailer::Base.add_delivery_method :jangomail, Jangomail::Mailer,
@@ -31,12 +31,12 @@ or for just a particular message:
            :delivery_method => :jangomail
     end
 
-# Non-Rails Example
+## Non-Rails Example
 Create a mailer instance and deliver
 
     mailer = Jangomail::Mailer.new :user_name => "username", :password => "password"
     mail = Mail.new { ... }
     mailer.deliver! mail
     
-# Contributors
+## Contributors
 - Jason Rust
