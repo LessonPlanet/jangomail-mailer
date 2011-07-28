@@ -1,5 +1,6 @@
 # JangoMail Transactional Mailer
-Implements [JangoMail Transactional API](http://api.jangomail.com/api.asmx?op=SendTransactionalEmail).
+Implements the [JangoMail Transactional API](http://api.jangomail.com/api.asmx?op=SendTransactionalEmail) as a
+custom [mailer](https://github.com/mikel/mail) class.
 
 ## Features
 - Accepts JangoMail options (e.g. OpenTrack, ClickTrack, TransactionalGroupID, etc.)
@@ -14,20 +15,20 @@ Implements [JangoMail Transactional API](http://api.jangomail.com/api.asmx?op=Se
 # Rails Examples
 Put in `config/initializers/jangomail.rb`:
 
-     ActionMailer::Base.add\_delivery\_method :jangomail, Jangomail::Mailer,
+     ActionMailer::Base.add_delivery_method :jangomail, Jangomail::Mailer,
                                               :user_name => 'username',
                                               :password  => 'password',
                                               :options   => { :OpenTrack => true }
 
 And in your ActionMailer class:
 
-    defaults :delivery\_method => :jangomail
+    defaults :delivery_method => :jangomail
 
 or for just a particular message:
 
     def welcome(user) do
       mail :to => user.email,
-           :delivery\_method => :jangomail
+           :delivery_method => :jangomail
     end
 
 # Non-Rails Example
