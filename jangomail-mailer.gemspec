@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Jason Rust"]
   s.email       = ["jason@rustedcode.com"]
-  s.homepage    = ""
+  s.homepage    = "http://github.com/jrust/jangomail-mailer"
   s.summary     = %q{JangoMail mailer}
   s.description = %q{JangoMail mailer}
 
