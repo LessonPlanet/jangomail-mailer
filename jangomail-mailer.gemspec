@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["jason@rustedcode.com"]
   s.homepage    = "http://github.com/jrust/jangomail-mailer"
   s.summary     = %q{JangoMail mailer}
-  s.description = %q{JangoMail mailer}
+  s.description = %q{Implements the JangoMail Transactional API as a custom mailer class.}
 
   s.add_dependency "mail"
   s.add_development_dependency "rspec", "~> 2.5.0"
