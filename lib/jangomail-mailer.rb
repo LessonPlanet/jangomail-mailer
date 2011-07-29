@@ -55,15 +55,6 @@ module Jangomail
         raise ArgumentError.new('A sender (Return-Path, Sender or From) required to send a message')
       end
 
-      option_str = settings[:options].inject([]) do |arr, option|
-        val = case option[1]
-                when TrueClass then 'True'
-                when FalseClass then 'False'
-                else option[1].to_s
-              end
-        arr << "#{option[0].to_s}=#{val}"
-      end.join(',')
-
       {
         'Username'      => settings[:user_name],
         'Password'      => settings[:password],
@@ -73,8 +64,20 @@ module Jangomail
         'Subject'       => mail.subject,
         'MessagePlain'  => mail.multipart? ? mail.text_part.body.to_s : mail.body.to_s,
         'MessageHTML'   => mail.multipart? ? mail.html_part.body.to_s : mail.body.to_s,
-        'Options'       => option_str,
+        'Options'       => stringified_options,
       }.map{ |k, v| "#{CGI.escape(k)}=#{CGI.escape(v)}"}.join('&')
+
+    end
+
+    def stringified_options
+      settings[:options].map do |k, v|
+        val = case v
+                when TrueClass then 'True'
+                when FalseClass then 'False'
+                else v.to_s
+              end
+        "#{k.to_s}=#{val}"
+      end.join(',')
     end
   end
 end
